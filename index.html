@@ -1056,12 +1056,53 @@ footer{border-top:1px solid var(--rule);background:var(--surface);
   </div>
 
   <div class="grade">
-    <div class="cart"><div class="k">Testes</div><div class="v">551</div><div class="d">19 arquivos, 0 falhas</div></div>
+    <div class="cart"><div class="k">Testes</div><div class="v">556</div><div class="d">19 arquivos, 0 falhas</div></div>
     <div class="cart"><div class="k">Tipos</div><div class="v">limpo</div><div class="d">domínio + interface, estrito</div></div>
     <div class="cart"><div class="k">Invariantes</div><div class="v">17/17</div><div class="d">schema do banco</div></div>
+    <div class="cart"><div class="k">Instalador</div><div class="v">2,2 MB</div><div class="d">gerado e assinável</div></div>
     <div class="cart"><div class="k">Código</div><div class="v">~9.950</div><div class="d">linhas TS + ~500 de Rust</div></div>
     <div class="cart"><div class="k">Clientes</div><div class="v">0</div><div class="d">e zero conversas registradas</div></div>
   </div>
+
+  <h3>Auditoria de segurança — 04/09</h3>
+  <p>Rodou uma auditoria completa do código contra as regras que o próprio projeto se impôs,
+    mais vulnerabilidades, LGPD e invariantes fiscais. <b>14 achados abertos, 1 corrigido no
+    mesmo dia.</b></p>
+
+  <div class="aviso verde">
+    <strong>✓ Corrigido no dia — venda fechada sem quitação</strong>
+    <p>A gravação conferia a soma dos itens e a fórmula do desconto, e <b>nunca conferia se a
+      venda tinha sido paga</b>. A regra existia e a tela a respeitava — mas a tela não é a única
+      entrada: o servidor e a janela do aplicativo gravam direto.</p>
+    <p>Na prática: um pedido <b>sem pagamento nenhum</b>, ou com um centavo num total de cem
+      reais, gravava a venda como <b>fechada</b> e concluía. E venda fechada não muda.</p>
+    <p>Corrigido com <b>cinco testes escritos antes da correção</b>. Suíte foi de 551 para 556.</p>
+  </div>
+
+  <div class="aviso">
+    <strong>O maior achado que continua aberto</strong>
+    <p>A fronteira entre a tela e o banco aceita <b>comando de banco solto</b>, sem restrição de
+      operação nem de tabela. Não há como explorar isso hoje — o código não tem nenhum dos
+      vetores que permitiriam, e a política de segurança da janela é fechada.</p>
+    <p>Mas é falha de <b>defesa em profundidade</b>: com essa fronteira aberta, <b>toda regra do
+      banco passa a depender de o código acima estar certo</b> — e o achado corrigido acima é a
+      prova de que ele não estava. Entra no roadmap antes da primeira loja real.</p>
+  </div>
+
+  <div class="aviso azul">
+    <strong>A revisão reverteu dois vereditos do próprio auditor</strong>
+    <p>Ele marcou como violadas as duas regras mais importantes do projeto — dinheiro em centavos
+      inteiros e quantidade em milésimos — lendo o <b>conversor de texto digitado</b> como se
+      fosse conta em ponto flutuante.</p>
+    <p>Os conversores foram testados contra a faixa inteira do produto: <b>exatos até
+      R$ 90 trilhões</b>. A ressalva real, bem menor, é que eles não limitam a quantidade de
+      dígitos que aceitam.</p>
+    <p><b>Achado de agente não entra sem ser conferido.</b> É por isso que a revisão existe.</p>
+  </div>
+
+  <p><b>Um buraco declarado:</b> a verificação de vulnerabilidade das 170 dependências
+    <b>não rodou</b> — o registro npm não respondeu em três tentativas. Não é "nada encontrado",
+    é "não verificado".</p>
 
   <h3>Marcos</h3>
   <div class="rolar">
