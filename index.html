@@ -1227,9 +1227,10 @@ footer{border-top:1px solid var(--rule);background:var(--surface);
   });
   conta();
 
-  // dias restantes
-  var alvo=new Date(2026,8,11,23,59,59);
-  var d=Math.ceil((alvo-new Date())/86400000);
+  // dias restantes, contados em dia de calendário (não em horas)
+  var alvo=new Date(2026,8,11);
+  var hj=new Date();hj=new Date(hj.getFullYear(),hj.getMonth(),hj.getDate());
+  var d=Math.round((alvo-hj)/86400000);
   var el=document.getElementById('dias');
   if(el)el.textContent=d>1?d+' dias':(d===1?'1 dia':(d===0?'é hoje':'passou'));
 
