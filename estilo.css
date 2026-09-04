@@ -1,0 +1,170 @@
+/* =============================================================================
+   Quadro do time — folha compartilhada pelas tres paginas de projeto.
+
+   A cor vem de quatro tokens que cada pagina redefine no proprio <style>:
+   --marca, --marca-900, --acento e --acento-forte. O resto e igual em todas,
+   de proposito: o mesmo layout serve para projeto com marca fechada (Elak) e
+   para projeto que ainda nao tem nome (Gestor de Vendas, mise).
+   ============================================================================= */
+
+:root{
+  --marca:#123F35; --marca-900:#0A231D; --marca-mid:#1A5A4A;
+  --acento:#3E9C7F; --acento-forte:#2A7A61; --acento-claro:#6FD3AE; --lavado:#E2EFE9;
+  --ink:#0E1A16; --ink-2:#33433D; --ink-3:#5A6B64;
+  --rule:#D5DEDA; --rule-2:#B9C6C1;
+  --surface:#fff; --surface-2:#E9EFEC; --paper:#F3F6F4;
+  --warning:#8F5E00; --warning-bg:#F6EDDA;
+  --danger:#C7301F; --danger-bg:#FAE6E3;
+  --info:#1D5BD6; --info-bg:#E4EBFA;
+  --f-display:'Outfit',system-ui,sans-serif;
+  --f-text:'Instrument Sans','Segoe UI',system-ui,sans-serif;
+  --f-data:'IBM Plex Mono',ui-monospace,monospace;
+  --r:3px; --r-lg:6px;
+  --sh1:0 1px 2px rgba(14,26,22,.06),0 1px 1px rgba(14,26,22,.04);
+  --sh2:0 4px 14px rgba(14,26,22,.08),0 1px 3px rgba(14,26,22,.05);
+  --max:920px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f-text);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.num{font-family:var(--f-data);font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+
+/* ---------- topo ---------- */
+header{background:var(--marca);color:#fff;padding:28px 20px 0}
+.hwrap{max-width:var(--max);margin:0 auto}
+.logo{display:flex;align-items:baseline;gap:2px;font-family:var(--f-display);
+  font-weight:600;font-size:30px;letter-spacing:-.03em;line-height:1}
+.logo b{font-weight:600}
+.logo i{width:.30em;height:.30em;border-radius:50%;background:var(--acento);
+  display:inline-block;font-style:normal;margin-left:.04em}
+.htag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acento-claro);margin-top:10px;font-weight:600}
+h1{font-family:var(--f-display);font-weight:600;letter-spacing:-.025em;
+  font-size:clamp(26px,5vw,40px);line-height:1.05;margin:8px 0 4px}
+.hsub{color:#B8D6CA;margin:0 0 20px;max-width:52ch;font-size:15px}
+
+.prazo{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.chip{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);
+  border-radius:var(--r);padding:8px 12px;font-size:13px;color:#DCEDE6}
+.chip strong{color:#fff;font-family:var(--f-data);font-variant-numeric:tabular-nums}
+
+nav{position:sticky;top:0;z-index:20;background:var(--marca-900);
+  border-top:1px solid rgba(255,255,255,.10)}
+.nwrap{max-width:var(--max);margin:0 auto;display:flex;gap:2px;
+  overflow-x:auto;scrollbar-width:none;padding:0 12px}
+.nwrap::-webkit-scrollbar{display:none}
+nav a{color:#9FC2B6;text-decoration:none;padding:13px 12px;font-size:13.5px;
+  font-weight:600;white-space:nowrap;border-bottom:2px solid transparent}
+nav a:hover{color:#fff}
+nav a.on{color:#fff;border-bottom-color:var(--acento)}
+
+/* ---------- corpo ---------- */
+main{max-width:var(--max);margin:0 auto;padding:0 20px 80px}
+section{padding-top:44px;scroll-margin-top:52px}
+h2{font-family:var(--f-display);font-weight:600;letter-spacing:-.025em;
+  font-size:26px;line-height:1.15;margin:0 0 6px}
+h3{font-family:var(--f-display);font-weight:600;letter-spacing:-.02em;
+  font-size:19px;margin:30px 0 8px}
+h4{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+  margin:24px 0 8px;font-weight:700}
+.lead{color:var(--ink-2);margin:0 0 22px;max-width:66ch}
+p{max-width:70ch}
+a{color:var(--acento-forte)}
+hr{border:0;border-top:1px solid var(--rule);margin:34px 0}
+code{font-family:var(--f-data);font-size:.88em;background:var(--surface-2);
+  padding:1px 5px;border-radius:var(--r)}
+
+/* ---------- cartão de pessoa ---------- */
+.pessoa{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-lg);
+  box-shadow:var(--sh1);margin-bottom:20px;overflow:hidden}
+.pcab{display:flex;align-items:center;gap:12px;padding:16px 18px;
+  border-bottom:1px solid var(--rule);background:var(--surface)}
+.av{width:38px;height:38px;border-radius:50%;background:var(--marca);color:#fff;
+  display:grid;place-items:center;font-family:var(--f-display);font-weight:600;
+  font-size:17px;flex:0 0 auto}
+.pnome{font-family:var(--f-display);font-weight:600;font-size:19px;letter-spacing:-.02em;line-height:1.2}
+.pfrente{font-size:12.5px;color:var(--ink-3);line-height:1.3}
+.pconta{margin-left:auto;text-align:right;font-family:var(--f-data);
+  font-variant-numeric:tabular-nums;font-size:13px;color:var(--ink-3);white-space:nowrap}
+.pconta b{color:var(--marca);font-size:16px}
+
+ul.tarefas{list-style:none;margin:0;padding:0}
+ul.tarefas li{display:flex;gap:12px;padding:14px 18px;border-bottom:1px solid var(--rule)}
+ul.tarefas li:last-child{border-bottom:0}
+ul.tarefas li.ok{background:var(--lavado)}
+.cx{flex:0 0 auto;margin-top:2px}
+.cx input{width:19px;height:19px;accent-color:var(--marca);cursor:pointer}
+.tcorpo{flex:1;min-width:0}
+.tid{font-family:var(--f-data);font-size:11px;font-weight:600;color:var(--acento-forte);
+  letter-spacing:.06em}
+.ttit{font-weight:600;margin:1px 0 3px;line-height:1.35}
+li.ok .ttit{text-decoration:line-through;text-decoration-color:var(--rule-2)}
+.taceite{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.taceite b{color:var(--ink)}
+
+/* ---------- avisos ---------- */
+.aviso{border-left:3px solid var(--warning);background:var(--warning-bg);
+  padding:14px 16px;border-radius:0 var(--r) var(--r) 0;margin:18px 0;font-size:14.5px}
+.aviso.vermelho{border-left-color:var(--danger);background:var(--danger-bg)}
+.aviso.azul{border-left-color:var(--info);background:var(--info-bg)}
+.aviso.verde{border-left-color:var(--marca);background:var(--lavado)}
+.aviso strong{display:block;margin-bottom:4px}
+.aviso p{margin:6px 0 0;max-width:none}
+.aviso ul{margin:8px 0 0;padding-left:20px}
+
+/* ---------- tabela ---------- */
+.rolar{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0;
+  border:1px solid var(--rule);border-radius:var(--r-lg);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:440px}
+th{background:var(--surface-2);text-align:left;padding:10px 14px;font-size:11.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:700;
+  border-bottom:1px solid var(--rule);white-space:nowrap}
+td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:0}
+td.n,th.n{font-family:var(--f-data);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+
+/* ---------- selos ---------- */
+.selo{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;padding:2px 7px;border-radius:var(--r);white-space:nowrap}
+.s-ok{background:var(--lavado);color:var(--marca)}
+.s-and{background:var(--info-bg);color:var(--info)}
+.s-esp{background:var(--surface-2);color:var(--ink-3)}
+.s-risco{background:var(--warning-bg);color:var(--warning)}
+.s-parado{background:var(--danger-bg);color:var(--danger)}
+
+/* ---------- grade ---------- */
+.grade{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:18px 0}
+.cart{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-lg);
+  padding:15px 16px;box-shadow:var(--sh1)}
+.cart .k{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:700}
+.cart .v{font-family:var(--f-data);font-variant-numeric:tabular-nums;
+  font-size:25px;font-weight:600;color:var(--marca);line-height:1.15;margin-top:5px}
+.cart .d{font-size:12.5px;color:var(--ink-3);margin-top:3px;line-height:1.4}
+
+/* ---------- passos ---------- */
+ol.passos{counter-reset:p;list-style:none;padding:0;margin:16px 0}
+ol.passos li{counter-increment:p;position:relative;padding-left:38px;margin-bottom:14px}
+ol.passos li::before{content:counter(p);position:absolute;left:0;top:0;
+  width:25px;height:25px;border-radius:50%;background:var(--marca);color:#fff;
+  display:grid;place-items:center;font-family:var(--f-data);font-size:12px;font-weight:600}
+
+footer{border-top:1px solid var(--rule);background:var(--surface);
+  padding:26px 20px;color:var(--ink-3);font-size:13px}
+.fwrap{max-width:var(--max);margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;
+  align-items:center;justify-content:space-between}
+
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B1512; --surface:#111E1A; --surface-2:#16241F;
+    --ink:#E8F0EC; --ink-2:#BCCCC5; --ink-3:#8CA39A;
+    --rule:#22332D; --rule-2:#2E453D; --lavado:#16302A;
+    --warning-bg:#2A2213; --danger-bg:#2E1815; --info-bg:#131F35;
+    --acento-forte:#6FD3AE;
+  }
+  :root:not([data-theme="light"]) .avaliar{color:var(--ink-2)}
+}

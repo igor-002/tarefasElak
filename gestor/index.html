@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gestor de Vendas — Tarefas</title>
+<meta name="description" content="Quadro de tarefas, bloqueios e estado do Gestor de Vendas.">
+<meta name="theme-color" content="#1F3245">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;600;700&family=Outfit:wght@500;600&display=swap">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../estilo.css">
+<style>
+  /* Provisório. Este sistema ainda não tem marca — é a tarefa A1 do Átila.
+     Aço e grafite porque o cliente é usinagem, não porque alguém decidiu. */
+  :root{
+    --marca:#1F3245; --marca-900:#131F2B; --marca-mid:#2C4863;
+    --acento:#5B9BD5; --acento-forte:#2E6DA4; --acento-claro:#9BC4E8; --lavado:#E7EEF5;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#0C1218; --surface:#121B24; --surface-2:#18232E;
+      --ink:#E6EDF3; --ink-2:#B6C4D1; --ink-3:#8496A6;
+      --rule:#22303D; --rule-2:#2E4050; --lavado:#16283A;
+      --acento-forte:#9BC4E8;
+    }
+  }
+  .voltar{display:inline-flex;align-items:center;gap:6px;color:#A9C3DA;
+    text-decoration:none;font-size:13px;font-weight:600;margin-bottom:14px}
+  .voltar:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <a class="voltar" href="../">← todos os projetos</a>
+    <div class="htag">Quadro do time</div>
+    <h1>Gestor de Vendas</h1>
+    <p class="hsub">Sistema comercial para empresas de usinagem, uma instância Docker por
+      cliente. É o projeto mais maduro dos três — e o único que já tem cliente-alvo definido.</p>
+    <div class="prazo">
+      <span class="chip">Fase <strong>piloto</strong></span>
+      <span class="chip">Nome comercial <strong>não existe</strong></span>
+      <span class="chip">Bloqueios em você <strong>3</strong></span>
+    </div>
+  </div>
+  <nav>
+    <div class="nwrap">
+      <a href="#tarefas" class="on">Tarefas</a>
+      <a href="#bloqueios">Bloqueios</a>
+      <a href="#nome">Nome e marca</a>
+      <a href="#estado">Estado</a>
+      <a href="#roadmap">Roadmap desatualizado</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ====================== TAREFAS ====================== -->
+<section id="tarefas">
+  <h2>Tarefas</h2>
+  <p class="lead">Tiradas do <code>ROADMAP.md</code> do próprio projeto, na ordem em que doem.
+    Marque o que já fez — a marcação fica salva <b>só neste aparelho</b>.</p>
+
+  <div class="pessoa">
+    <div class="pcab">
+      <div class="av">I</div>
+      <div>
+        <div class="pnome">Igor</div>
+        <div class="pfrente">Produto e engenharia</div>
+      </div>
+      <div class="pconta"><b data-conta="igor">0</b>/6</div>
+    </div>
+    <ul class="tarefas" data-dono="igor">
+      <li data-id="G1">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">G1 · o mais grave</div>
+          <div class="ttit">Executar o restore num banco limpo, do zero</div>
+          <div class="taceite"><b>Aceite:</b> um dump real restaurado numa instância vazia, com
+            login funcionando, CPF/CNPJ legível, busca por CPF/CNPJ achando, orçamento abrindo e
+            anexo baixando. <b>Backup nunca restaurado não é backup</b> — e aqui o risco é pior
+            que perder dado: restaurar com a chave errada deixa CPF, telefone, e-mail e endereço
+            <b>ilegíveis para sempre</b>.</div>
+        </div>
+      </li>
+      <li data-id="G2">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">G2 · destrava o módulo fiscal</div>
+          <div class="ttit">Escolher o provedor de NF-e</div>
+          <div class="taceite"><b>Aceite:</b> um provedor escolhido entre Focus NFe, NFe.io e
+            PlugNotas, com preço e escopo por escrito. <b>É decisão, não código</b> — e enquanto
+            não sai, o pedido conclui e o dinheiro some do sistema.</div>
+        </div>
+      </li>
+      <li data-id="G3">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">G3 · destrava a precificação</div>
+          <div class="ttit">Escrever o modelo de cálculo de preço que a usinagem usa de verdade</div>
+          <div class="taceite"><b>Aceite:</b> a conta no papel — matéria-prima, hora/máquina,
+            acabamento e margem — com um exemplo numérico fechado. O roadmap diz há meses que
+            isso <b>aguarda você</b>, e o PDF de referência é só layout, não fórmula.</div>
+        </div>
+      </li>
+      <li data-id="G4">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">G4 · barato e sentido cedo</div>
+          <div class="ttit">Exportação CSV</div>
+          <div class="taceite"><b>Aceite:</b> cliente, orçamento e pedido saem em CSV. Sem isso
+            o cliente copia da tela para mandar ao contador dele.</div>
+        </div>
+      </li>
+      <li data-id="G5">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">G5 · bug conhecido</div>
+          <div class="ttit">O link do WhatsApp derruba o link enviado por e-mail</div>
+          <div class="taceite"><b>Aceite:</b> gerar o link de WhatsApp deixa de invalidar o link
+            que o cliente já recebeu por e-mail. O roadmap registra que isso foi descrito como
+            "inevitável" e <b>estava errado</b>: é consequência de guardar o token só como hash.
+            Junto, a migration de uma linha que acrescenta <code>WHATSAPP</code> ao
+            <code>TipoAtividade</code> — hoje o envio vira <code>NOTA</code> e polui o CRM.</div>
+        </div>
+      </li>
+      <li data-id="G6">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">G6</div>
+          <div class="ttit">Trilha de auditoria geral</div>
+          <div class="taceite"><b>Aceite:</b> <code>StatusLog</code> generalizado num
+            <code>AuditLog</code> — quem alterou o quê, quando. Hoje só transição de status deixa
+            rastro; edição de preço e de cadastro não deixa nenhum. <b>Mexe em schema de forma
+            ampla: fazer sozinho</b>, sem outra fatia viva, porque as worktrees dividem o mesmo
+            banco de dev.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="pessoa">
+    <div class="pcab">
+      <div class="av">Á</div>
+      <div>
+        <div class="pnome">Átila</div>
+        <div class="pfrente">Nome, marca e identidade visual</div>
+      </div>
+      <div class="pconta"><b data-conta="atila">0</b>/2</div>
+    </div>
+    <ul class="tarefas" data-dono="atila">
+      <li data-id="A1">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">A1 · urgente</div>
+          <div class="ttit">Nome comercial para o Gestor de Vendas</div>
+          <div class="taceite"><b>Aceite:</b> 3 a 5 nomes candidatos, com o domínio
+            <code>.com.br</code> conferido como livre em cada um. Ver o briefing na aba
+            <a href="#nome">Nome e marca</a>.</div>
+        </div>
+      </li>
+      <li data-id="A2">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">A2 · depois do nome</div>
+          <div class="ttit">Identidade visual do nome escolhido</div>
+          <div class="taceite"><b>Aceite:</b> logotipo em SVG com contornos, paleta e fonte
+            definidas, e a regra de uso escrita. Não precisa ser um manual de 16 seções — precisa
+            ser suficiente para o sistema parar de usar cor provisória.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="aviso azul">
+    <strong>A cor desta página é provisória</strong>
+    <p>Aço e grafite porque o cliente é usinagem, não porque alguém decidiu. Ela troca no dia em
+      que a A2 fechar.</p>
+  </div>
+</section>
+
+<!-- ====================== BLOQUEIOS ====================== -->
+<section id="bloqueios">
+  <h2>Bloqueios</h2>
+  <p class="lead">Três coisas travadas, e <b>as três travam em você</b>. Nenhuma é código.</p>
+
+  <div class="aviso vermelho">
+    <strong>1 · O restore nunca foi executado</strong>
+    <p>O script existe (<code>docker/restore.sh</code>) e o README documenta o passo a passo.
+      O que não existe é <b>evidência de que alguém rodou</b> num banco vazio e conferiu o
+      resultado.</p>
+    <p>O risco específico deste sistema: os dados pessoais são cifrados, e restaurar com
+      <code>ENCRYPTION_KEY</code> ou <code>BLIND_INDEX_KEY</code> diferentes <b>não dá
+      recuperação parcial</b> — CPF/CNPJ, telefone, e-mail e endereço ficam ilegíveis
+      permanentemente naquela instância, e a busca por CPF para de achar.</p>
+    <p>Enquanto isso não for exercitado uma vez, com calma, todo cliente no ar está apoiado numa
+      suposição.</p>
+  </div>
+
+  <div class="aviso vermelho">
+    <strong>2 · Sem provedor de NF-e, o produto abandona o cliente no fim do ciclo</strong>
+    <p>O roadmap é direto: <i>"o pedido conclui e o dinheiro some do sistema. É onde o produto
+      abandona o cliente, bem no fim do ciclo que ele cobre tão bem até ali."</i></p>
+    <p>Empresa brasileira que vende peça <b>é obrigada a emitir nota</b>. Sem isso o cliente
+      precisa de um segundo sistema exatamente no fechamento — que é o pior lugar possível para
+      ele descobrir que o seu não resolve.</p>
+    <p>Candidatos já levantados: <b>Focus NFe</b>, <b>NFe.io</b>, <b>PlugNotas</b>.</p>
+  </div>
+
+  <div class="aviso">
+    <strong>3 · A precificação automática aguarda você desde sempre</strong>
+    <p>O roadmap diz, literalmente: <i>"Aguarda o Igor fornecer o modelo de cálculo real."</i>
+      Não dá para escrever a fórmula sem saber como a usinagem forma preço — e chutar aqui
+      produz um número que o dono da fábrica olha uma vez e nunca mais usa.</p>
+    <p>O que destrava: a conta no papel, com um exemplo fechado. Matéria-prima, hora/máquina,
+      acabamento, margem.</p>
+  </div>
+
+  <div class="aviso azul">
+    <strong>O mesmo padrão dos outros dois projetos</strong>
+    <p>Na Elak, o fiscal trava numa decisão sua sobre o provedor. No mise, o pagamento trava numa
+      decisão sua sobre o provedor. Aqui, a nota fiscal trava numa decisão sua sobre o provedor.
+      <b>Três projetos, o mesmo tipo de bloqueio</b> — e nenhum deles anda por código.</p>
+  </div>
+</section>
+
+<!-- ====================== NOME ====================== -->
+<section id="nome">
+  <h2>Nome e marca — briefing para o Átila</h2>
+  <p class="lead">"Gestor de Vendas" descreve, não nomeia. Serve enquanto é um sistema
+    interno; não serve para revender, para pôr num domínio nem para o cliente falar dele.</p>
+
+  <h3>O que o produto é</h3>
+  <div class="rolar">
+    <table>
+      <tbody>
+        <tr><td><b>Para quem</b></td><td>Empresa de <b>usinagem</b> — fábrica que faz peça sob medida em torno e fresa. Pequena e média, dono presente no chão</td></tr>
+        <tr><td><b>Quem usa</b></td><td>Três papéis diferentes: vendedor (orçamento), produção (chão de fábrica) e o dono (painel). Não é um app de uma pessoa só</td></tr>
+        <tr><td><b>O que resolve</b></td><td>O ciclo inteiro: cliente → orçamento → pedido → ordem de produção → entrega → recebimento</td></tr>
+        <tr><td><b>Como é vendido</b></td><td>Uma instalação isolada por empresa, com domínio próprio. É <b>revenda</b>, não SaaS multi-inquilino</td></tr>
+        <tr><td><b>O que tem de diferente</b></td><td>Tela de fábrica com alerta em tela cheia, ordem de produção com etapas, e painel de gargalo. A maioria dos concorrentes para no orçamento</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>O que o nome precisa aguentar</h3>
+  <ol class="passos">
+    <li><b>Ser dito no telefone sem soletrar.</b> O comprador é dono de fábrica, e a conversa
+      acontece por telefone e WhatsApp.</li>
+    <li><b>Caber num domínio <code>.com.br</code> livre.</b> Confira antes de trazer — nome bom
+      com domínio ocupado é nome perdido.</li>
+    <li><b>Não ser só a categoria.</b> "Gestor", "Sistema", "ERP" e "Vendas" no nome fazem o
+      produto virar commodity antes da primeira reunião.</li>
+    <li><b>Não prender a usinagem para sempre.</b> Hoje o alvo é usinagem; o mesmo sistema serve
+      qualquer fábrica sob encomenda. Nome com "torno" ou "CNC" fecha essa porta.</li>
+    <li><b>Sobreviver ao chão de fábrica.</b> Vai aparecer em tela suja, monitor velho e crachá.</li>
+  </ol>
+
+  <h3>O que trazer</h3>
+  <div class="aviso verde">
+    <p><b>3 a 5 nomes</b>, e para cada um: o domínio <code>.com.br</code> conferido, uma frase
+      dizendo por que ele cabe, e o que ele quer dizer se quiser dizer algo.</p>
+    <p><b>Não registre nada sozinho.</b> Igual à regra da Elak: cotar e recomendar é individual,
+      registrar em nome da empresa é decisão de todos.</p>
+  </div>
+</section>
+
+<!-- ====================== ESTADO ====================== -->
+<section id="estado">
+  <h2>Estado do projeto</h2>
+  <p class="lead">O que já funciona, tirado do roadmap e conferido contra o repositório.</p>
+
+  <h3>O que já existe</h3>
+  <div class="rolar">
+    <table>
+      <tbody>
+        <tr><td><b>Clientes</b></td><td>CRUD cifrado por LGPD, busca por nome e por CPF/CNPJ com blind index, ficha com histórico e documentos</td></tr>
+        <tr><td><b>Orçamentos</b></td><td>Montagem com itens, numeração sem buraco, pipeline de status com log, PDF profissional, link público de aprovação</td></tr>
+        <tr><td><b>Pedidos</b></td><td>Conversão transacional a partir do orçamento, pipeline de produção em 4 etapas, timeline</td></tr>
+        <tr><td><b>Produção</b></td><td>Ordem de produção com sub-etapas, tela de fábrica com alerta em tela cheia, painel de gargalo e tempo de fila</td></tr>
+        <tr><td><b>Estoque</b></td><td>Saldo, kardex, movimentação transacional, alerta de mínimo</td></tr>
+        <tr><td><b>CRM</b></td><td>Funil kanban, atividades, agenda central, automação de follow-up, motivo de perda</td></tr>
+        <tr><td><b>Financeiro</b></td><td>Contas a receber — título com vencimento e baixa, ligado ao pedido dentro da transação</td></tr>
+        <tr><td><b>API pública</b></td><td><code>/api/v1</code> com chave e escopo, mais webhooks de saída assinados</td></tr>
+        <tr><td><b>Infra</b></td><td>Uma stack Docker por empresa, proxy HTTPS, backup agendado, monitoramento de erro com scrub de dado pessoal</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>O que não existe</h3>
+  <div class="rolar">
+    <table>
+      <thead><tr><th>Falta</th><th>Gravidade</th></tr></thead>
+      <tbody>
+        <tr><td><b>Emissão de NF-e</b> — o dinheiro sai do sistema no fim do ciclo</td><td><span class="selo s-parado">trava a venda</span></td></tr>
+        <tr><td><b>Restore exercitado</b> — o script existe, a execução não foi conferida</td><td><span class="selo s-parado">alta</span></td></tr>
+        <tr><td><b>Precificação automática</b> — aguarda o modelo de cálculo</td><td><span class="selo s-risco">média</span></td></tr>
+        <tr><td><b>Trilha de auditoria geral</b> — só status deixa rastro</td><td><span class="selo s-risco">média</span></td></tr>
+        <tr><td><b>Exportação CSV</b></td><td><span class="selo s-risco">média</span></td></tr>
+        <tr><td>Apontamento por máquina, agendamento e baixa automática de matéria-prima</td><td><span class="selo s-esp">backlog</span></td></tr>
+        <tr><td>Testes E2E (Playwright); 7 services ainda sem teste de integração</td><td><span class="selo s-esp">backlog</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="aviso">
+    <strong>Uma medição que ficou pela metade</strong>
+    <p>A página <code>/configuracoes</code> é a mais lenta (~1,1 s contra 0,5–0,9 s das outras).
+      O roadmap registra que <code>next/dynamic</code> foi tentado e <b>não resolve</b> — e,
+      melhor ainda, registra <b>por quê</b>: o diagnóstico original estava errado, o 1,1 s é
+      tempo de resposta do servidor e não tamanho de bundle.</p>
+    <p>O próximo passo já está escrito: medir o custo de render no servidor. Ninguém mediu ainda.</p>
+  </div>
+</section>
+
+<!-- ====================== ROADMAP ====================== -->
+<section id="roadmap">
+  <h2>O roadmap envelheceu em dois pontos</h2>
+  <p class="lead">Conferido contra o repositório em 04/09/2026. Dois itens marcados como
+    pendentes <b>já foram feitos</b>, e isso importa porque eles estão na lista de riscos de
+    produção — a lista que decide se dá para dormir tranquilo.</p>
+
+  <div class="rolar">
+    <table>
+      <thead><tr><th>O roadmap diz</th><th>A realidade</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>🔴 <i>"não existe procedimento de restauração documentado nem testado"</i></td>
+          <td><b>Metade resolvida.</b> <code>docker/restore.sh</code> existe e o README documenta o passo a passo, incluindo o aviso sobre as chaves e o <code>--force-overwrite</code>. <b>O que continua verdadeiro é o "nem testado"</b> — e essa metade é a que importa</td>
+        </tr>
+        <tr>
+          <td>🟠 <i>"Sem healthcheck da app. Falta rota <code>/api/health</code>"</i></td>
+          <td><b>Resolvido.</b> <code>src/app/api/health/route.ts</code> existe, o <code>docker-compose.yml</code> tem healthcheck no serviço da app além do Postgres, e o README documenta o diagnóstico por <code>curl</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="aviso azul">
+    <strong>Por que isso vale uma seção</strong>
+    <p>Roadmap que lista como pendente o que já está pronto <b>gasta atenção à toa</b> e, pior,
+      faz duvidar do resto da lista. Vale uma passada de manutenção no <code>ROADMAP.md</code>
+      junto com a próxima fatia — não é urgente, é higiene.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="fwrap">
+    <div>Gestor de Vendas · quadro do time · atualizado em <b class="num">04/09/2026</b></div>
+    <div><a href="../">todos os projetos</a></div>
+  </div>
+</footer>
+
+<script src="../quadro.js"></script>
+</body>
+</html>
