@@ -437,6 +437,20 @@ footer{border-top:1px solid var(--rule);background:var(--surface);
       de alguém.</p>
   </div>
 
+  <div class="aviso azul">
+    <strong>Nova — a pergunta que trava o fiscal, e que não é código</strong>
+    <p>Ligar a emissão de nota ao caixa parecia o próximo passo óbvio. Não é: ela esbarra numa
+      decisão que ninguém tomou.</p>
+    <p><b>Quem monta e assina a nota — a gente, ou um programa do fornecedor rodando na loja?</b></p>
+    <p>A pesquisa do projeto já fechou metade: com loja sem internet, a nota <b>tem que ser
+      gerada no computador da loja</b>. Fornecedor que só tem serviço na nuvem não resolve o
+      nosso caso. O que falta decidir é se o programa que gera é dele ou nosso.</p>
+    <p>As duas respostas mudam o código, e <b>escrever qualquer uma antes do contrato existir é
+      inventar</b>. O contrato depende do CNPJ, que é a pendência 4.</p>
+    <p>O que dava para fazer sem a resposta já foi feito: a fila fiscal estava quebrada e foi
+      consertada.</p>
+  </div>
+
   <h3>A janela de São Paulo</h3>
   <p>NFC-e é obrigatória no varejo paulista desde <b>01/01/2026</b>, e o CF-e-SAT foi vedado.
     Todo mercadinho de SP que usava SAT teve que resolver a vida em janeiro. Faz oito meses.
@@ -1056,7 +1070,7 @@ footer{border-top:1px solid var(--rule);background:var(--surface);
   </div>
 
   <div class="grade">
-    <div class="cart"><div class="k">Testes</div><div class="v">556</div><div class="d">19 arquivos, 0 falhas</div></div>
+    <div class="cart"><div class="k">Testes</div><div class="v">583</div><div class="d">19 arquivos, 0 falhas</div></div>
     <div class="cart"><div class="k">Tipos</div><div class="v">limpo</div><div class="d">domínio + interface, estrito</div></div>
     <div class="cart"><div class="k">Invariantes</div><div class="v">17/17</div><div class="d">schema do banco</div></div>
     <div class="cart"><div class="k">Instalador</div><div class="v">2,2 MB</div><div class="d">gerado e assinável</div></div>
@@ -1066,17 +1080,25 @@ footer{border-top:1px solid var(--rule);background:var(--surface);
 
   <h3>Auditoria de segurança — 04/09</h3>
   <p>Rodou uma auditoria completa do código contra as regras que o próprio projeto se impôs,
-    mais vulnerabilidades, LGPD e invariantes fiscais. <b>14 achados abertos, 1 corrigido no
-    mesmo dia.</b></p>
+    mais vulnerabilidades, LGPD e invariantes fiscais. <b>Seis achados corrigidos no mesmo dia,
+    nove ainda abertos.</b> Todos os consertos com teste escrito antes.</p>
 
   <div class="aviso verde">
-    <strong>✓ Corrigido no dia — venda fechada sem quitação</strong>
-    <p>A gravação conferia a soma dos itens e a fórmula do desconto, e <b>nunca conferia se a
-      venda tinha sido paga</b>. A regra existia e a tela a respeitava — mas a tela não é a única
-      entrada: o servidor e a janela do aplicativo gravam direto.</p>
-    <p>Na prática: um pedido <b>sem pagamento nenhum</b>, ou com um centavo num total de cem
-      reais, gravava a venda como <b>fechada</b> e concluía. E venda fechada não muda.</p>
-    <p>Corrigido com <b>cinco testes escritos antes da correção</b>. Suíte foi de 551 para 556.</p>
+    <strong>✓ O que foi consertado</strong>
+    <div class="rolar" style="margin-top:10px">
+      <table>
+        <thead><tr><th>O que era</th><th>Por que importava</th></tr></thead>
+        <tbody>
+          <tr><td><b>Contingência travava a fila da loja</b></td><td>Um documento emitido sem internet derrubava o processamento fiscal <b>para sempre</b> — nem as vendas normais depois dele transmitiam. É exatamente o critério de aceite do marco fiscal: <i>roteador desligado, venda fecha, cupom sai, transmite sozinho quando a rede volta.</i> Não transmitia</td></tr>
+          <tr><td><b>Venda fechada sem pagamento</b></td><td>A gravação conferia a soma dos itens e o desconto, e nunca conferia se a venda tinha sido paga. Pedido sem pagamento nenhum gravava como <b>fechada</b>. E venda fechada não muda</td></tr>
+          <tr><td><b>Nota fiscal podia sair duas vezes</b></td><td>Dois processadores podiam transmitir o mesmo documento e autorizar o mesmo número duas vezes</td></tr>
+          <tr><td><b>Fiado sem devedor</b></td><td>Fechava a dívida sem cliente: a loja registrava R$ 200 de fiado e <b>não sabia de quem era</b>. Fiado passa a ser recusado até a tela ter escolha de cliente</td></tr>
+          <tr><td><b>Centavo e milésimo somem em silêncio</b></td><td>A leitura de valor digitado passava por conta quebrada. Numa faixa que o sistema aceitava, um milésimo desaparecia sem erro nenhum</td></tr>
+          <tr><td><b>Nome de produto virando comando de impressora</b></td><td>Nome vindo de planilha de fornecedor podia acionar corte no meio da venda ou truncar o cupom. E cupom fiscal impresso errado é documento, não detalhe</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Suíte foi de <b>551 para 583 testes</b>.</p>
   </div>
 
   <div class="aviso">
