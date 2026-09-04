@@ -193,6 +193,7 @@ footer{border-top:1px solid var(--rule);background:var(--surface);
     <div class="nwrap">
       <a href="#tarefas" class="on">Tarefas</a>
       <a href="#pendencias">Pendências</a>
+      <a href="#council">Council</a>
       <a href="#felipe">Para o Felipe</a>
       <a href="#cesar">Para o César</a>
       <a href="#projeto">Projeto</a>
@@ -450,6 +451,121 @@ footer{border-top:1px solid var(--rule);background:var(--surface);
     </table>
   </div>
   <p><b>Trinta portas respondem isso em uma semana, e não exigem uma linha de código.</b></p>
+</section>
+
+<!-- ====================== COUNCIL ====================== -->
+<section id="council">
+  <h2>Council de 04/09 — seguir ou parar</h2>
+  <p class="lead">Cinco pareceres independentes, três revisores anônimos, um veredito. É o
+    terceiro council do projeto — os dois primeiros decidiram posicionamento e arquitetura.
+    Este decidiu o que fazer agora que <b>o produto funciona e não tem cliente</b>.</p>
+
+  <div class="aviso verde">
+    <strong>Veredito: continuar</strong>
+    <p>Mas a semana que vem <b>não é código, não é infraestrutura, e não é demonstração</b>.</p>
+    <p>O gargalo é <b>demanda não medida</b>, não hora de implantação. Só que <b>medir não é o
+      mesmo que vender</b>: sair com um demo que não imprime cupom queima o recurso mais escasso
+      do projeto, que é crédito numa rua pequena — local e não renovável.</p>
+    <p>Os dois se conciliam de um jeito só: <b>medir sem vender, e sem demo.</b></p>
+  </div>
+
+  <h3>As cinco decisões</h3>
+  <ol class="passos">
+    <li><b>Vesting, antes de qualquer compra em nome dos três.</b> Quatro anos, cliff de um.
+      Custa R$ 0 hoje. Sem ele, quem parar no mês 3 fica com um terço de uma empresa cujo único
+      ativo é o repositório do Igor — e a ruptura não vem no mês 3, vem no mês 14, quando existe
+      dinheiro, levando junto CNPJ, domínio e contrato do provedor fiscal. <b>É o item com a pior
+      assimetria do projeto inteiro, e o mais barato de resolver.</b></li>
+    <li><b>A medição barata — sem notebook e sem venda.</b> Uma pergunta no balcão:
+      <i>"desde janeiro, quem emite a sua nota, e quanto você paga por isso?"</i> Dez lojas, uma
+      manhã, três pessoas. Mais <b>uma ligação para um contador de bairro</b>, que responde por
+      40 lojas de uma vez e é a fonte mais barata que existe.<br>
+      <b>Corte:</b> ≥ 1/3 ainda no SAT, ou em PDV de adquirente que não opera offline → o
+      mercado existe, e o fiscal vira prioridade absoluta. Maioria migrada e satisfeita → o
+      recorte está errado.<br>
+      O corte de "2 sinais de R$ 100" fica <b>suspenso</b>: ele mede fé no Igor, não mercado, e
+      um zero seria falso negativo capaz de matar um produto que funciona.</li>
+    <li><b>Comprar uma impressora, R$ 450, de qualquer jeito.</b> É mais barato que uma rua
+      queimada, e é o que separa "demo bonito" de "cupom na mão". A segunda impressora e o PDV
+      Celeron ficam para depois. <b>Nenhuma demonstração antes de a impressora imprimir.</b></li>
+    <li><b>Manter as cotações do Felipe e do César, com caixa de tempo.</b> Custam pouco e
+      destravam o CNPJ, que é o gate real da venda. Mas <b>nenhuma compra nesta semana</b>.</li>
+    <li><b>Não vender laudo fiscal.</b> Surgiu a ideia de cobrar R$ 250 para conferir se a
+      emissão do lojista está legal. É comercialmente brilhante e juridicamente péssima:
+      assessoria fiscal sem CNPJ, sem nota, por quem não é contador, numa UF com
+      responsabilidade solidária do desenvolvedor. <b>A pergunta de graça no balcão entrega o
+      mesmo aprendizado sem o risco.</b></li>
+  </ol>
+
+  <h3>O que os cinco pareceres disseram</h3>
+  <div class="rolar">
+    <table>
+      <thead><tr><th>Voz</th><th>Tese</th></tr></thead>
+      <tbody>
+        <tr><td><b>Contrarian</b></td><td>"O portão não foi adiado — foi <b>substituído</b>." Oito meses de código não são atraso: são um argumento pré-fabricado contra o "não". No dia em que o Igor ficar atrás do balcão, ele não vai perguntar, vai demonstrar — e <b>demonstração mata descoberta</b></td></tr>
+        <tr><td><b>First Principles</b></td><td>"A Elak vende software ou vende <b>migração fiscal</b>?" A receita do primeiro ano é hora de gente, não licença. E a dor não é o balcão: <b>é uma data que já passou</b> — 01/01/2026</td></tr>
+        <tr><td><b>Expansionist</b></td><td>O ativo durável não é o caixa, é a capacidade de <b>tirar uma loja de outro sistema</b> e provar que ela pode sair da Elak também. Pergunte na porta: "quanto tempo você levou pra migrar em janeiro?"</td></tr>
+        <tr><td><b>Outsider</b><br><span style="font-size:12px;color:var(--ink-3)">dona de mercadinho</span></td><td>"Meu sistema é uma porcaria, mas <b>é a porcaria que eu conheço</b>. Você tem <b>uma</b> falha de crédito comigo, não três. Se travar com seis na fila, eu volto pro sistema velho na segunda"</td></tr>
+        <tr><td><b>Executor</b></td><td>Uma rua, quatro dias, <b>R$ 930</b>. Corte binário na sexta. E achou um erro de calendário no plano: <b>07/09 é feriado</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="aviso vermelho">
+    <strong>O que a dona do mercadinho disse, e vale mais que os outros quatro juntos</strong>
+    <p>Ela deu <b>os dois únicos gatilhos de compra</b> que reconhece:</p>
+    <ul>
+      <li><i>"Se o meu sistema não emitir a nota que virou obrigatória e eu ficar na
+        ilegalidade — aí eu troco chorando."</i></li>
+      <li><i>"Ou se você aparecer aqui, sem me cobrar nada, e rodar junto com o meu sistema por
+        um mês. Eu bipo nos dois. Se o seu bater e o meu não, eu te pago os mil."</i></li>
+    </ul>
+    <p><b>Os dois exigem emissão fiscal ligada e cupom em papel.</b> É por isso que bater porta
+      hoje mede simpatia, não demanda — e é por isso que a impressora vem antes.</p>
+    <p>O medo dela, na ordem: <b>ficar sem vender</b> ("se o caixa não abre às 7h eu perco o
+      movimento do pão e a rua inteira vê"), depois <b>a nota sair errada</b> ("se o fiscal bater
+      aqui, quem paga sou eu"). O preço é o terceiro. E: <i>"se você não é empresa hoje, o que
+      garante que existe daqui a dois anos? Já passei por isso. Uma vez."</i></p>
+  </div>
+
+  <h3>O que a revisão pegou</h3>
+  <div class="aviso">
+    <strong>Um erro de conta que estava no projeto desde agosto</strong>
+    <p>O documento financeiro dizia que <b>R$ 10 mil líquidos por mês</b> chegavam no mês 12.
+      Não chegavam: aquele número era <b>receita bruta</b>, e o custo do provedor fiscal nunca
+      tinha sido subtraído.</p>
+    <div class="grade" style="margin-top:12px">
+      <div class="cart"><div class="k">Mês 12 — bruto</div><div class="v">R$ 10.433</div><div class="d">era isso que o doc chamava de líquido</div></div>
+      <div class="cart"><div class="k">Mês 12 — líquido real</div><div class="v">R$ 6.845</div><div class="d">depois do provedor fiscal e do bucket</div></div>
+      <div class="cart"><div class="k">Dividido por três</div><div class="v">R$ 2.280</div><div class="d">por cabeça, antes de imposto</div></div>
+      <div class="cart"><div class="k">R$ 10 mil líquidos</div><div class="v">~mês 24</div><div class="d">não mês 12</div></div>
+    </div>
+    <p>Corrigido no documento no mesmo dia. <b>Essa linha é a razão pela qual acordo de sócios
+      não é burocracia adiável:</b> o projeto só passa de "bico dividido por três" perto do
+      segundo ano — e é entre um ponto e outro que sociedade sem contrato quebra.</p>
+  </div>
+
+  <div class="aviso azul">
+    <strong>A revisão também acusou o próprio council de viés</strong>
+    <p>Quatro dos cinco convergiram para a mesma resposta, e o revisor 2 mostrou por quê: a
+      pergunta <b>não pediu diagnóstico, entregou um</b>. Ela já dizia "o portão nunca foi
+      executado" e "zero conversas registradas" — texto copiado das próprias pendências do
+      projeto. <b>O council foi consultado com a conclusão já escrita.</b></p>
+    <p>E o título era "seguir ou parar": 5 de 5 disseram seguir, e <b>ninguém redigiu o cenário
+      de parada</b>. Fica registrado para a próxima rodada, que precisa ser enquadrada por quem
+      não escreveu as pendências.</p>
+  </div>
+
+  <h3>O que ficou em aberto para o próximo council</h3>
+  <ol class="passos">
+    <li><b>Quantos meses o Igor aguenta.</b> Nenhum documento do projeto tem esse número, e ele
+      muda toda decisão de ritmo. É a primeira coisa a escrever.</li>
+    <li><b>O cenário de parada.</b> Oito vozes, nenhuma redigiu como seria parar bem — o que se
+      faz com o código, com o que já foi gasto, e o que se aprende.</li>
+    <li><b>LGPD do piloto.</b> A única resposta "sim" que a rua dá — rodar junto com o sistema
+      antigo por um mês — exige dado real de loja e de cliente num banco <b>ainda não cifrado em
+      repouso</b>. Isso precisa de resposta <b>antes</b> de acontecer, não depois.</li>
+  </ol>
 </section>
 
 <!-- ====================== FELIPE ====================== -->
