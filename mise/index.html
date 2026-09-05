@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>mise — Tarefas</title>
+<meta name="description" content="Quadro de tarefas, bloqueios e estado do mise, a plataforma de pedidos online para restaurantes.">
+<meta name="theme-color" content="#6E1D1D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;600;700&family=Outfit:wght@500;600&display=swap">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../estilo.css">
+<style>
+  /* Provisório. Este sistema ainda não tem marca — é a tarefa A1 do Átila.
+     Vermelho de tijolo e brasa porque o produto é comida e a decisão de compra
+     é de apetite, não porque alguém escolheu. Troca quando a A2 fechar. */
+  :root{
+    --marca:#6E1D1D; --marca-900:#48120F; --marca-mid:#8E2C24;
+    --acento:#E4633C; --acento-forte:#B8431F; --acento-claro:#F3A98D; --lavado:#F8EAE4;
+    --topo-fraco:#D8A99A; --topo-medio:#E8C4B6; --topo-claro:#F6E2D9;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#140D0B; --surface:#1D1310; --surface-2:#261915;
+      --ink:#F2E7E2; --ink-2:#D0BCB4; --ink-3:#A78D84;
+      --rule:#33221D; --rule-2:#452F28; --lavado:#33201A;
+      --acento-forte:#F3A98D;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <div class="htag">Quadro do time</div>
+    <h1>mise</h1>
+    <p class="hsub">Plataforma de pedidos online para restaurantes: cada loja ganha o próprio
+      canal, com a marca dela e sem comissão de marketplace. O código está mais adiantado do
+      que o negócio — e é isso que esta página mostra.</p>
+    <div class="prazo">
+      <span class="chip">Fase <strong>F3 · pagamento</strong></span>
+      <span class="chip">Nome comercial <strong>não existe</strong></span>
+      <span class="chip">Lojas piloto <strong>0</strong></span>
+      <span class="chip">Bloqueios em você <strong>4</strong></span>
+    </div>
+  </div>
+  <nav>
+    <div class="nwrap">
+      <a href="#tarefas" class="on">Tarefas</a>
+      <a href="#bloqueios">Bloqueios</a>
+      <a href="#nome">Nome e marca</a>
+      <a href="#estado">Estado</a>
+      <a href="#dividas">Dívidas</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ====================== TAREFAS ====================== -->
+<section id="tarefas">
+  <h2>Tarefas</h2>
+  <p class="lead">Tiradas da seção 10 do <code>docs/REQUISITOS.md</code> e das dívidas da F2,
+    na ordem em que doem. Marque o que já fez — a marcação fica salva
+    <b>só neste aparelho</b>.</p>
+
+  <div class="pessoa">
+    <div class="pcab">
+      <div class="av">I</div>
+      <div>
+        <div class="pnome">Igor</div>
+        <div class="pfrente">Produto e engenharia</div>
+      </div>
+      <div class="pconta"><b data-conta="igor">0</b>/6</div>
+    </div>
+    <ul class="tarefas" data-dono="igor">
+      <li data-id="M1">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">M1 · trava o v1 vendável</div>
+          <div class="ttit">Escolher o provedor de pagamento</div>
+          <div class="taceite"><b>Aceite:</b> um provedor escolhido entre <b>Asaas</b>,
+            <b>Pagar.me</b>, <b>Mercado Pago</b> e <b>Stripe</b>, com as seis perguntas de
+            <code>docs/ESCOLHA-PROVEDORES.md</code> respondidas por escrito. Duas decidem
+            sozinhas: <b>o Pix cai na conta do restaurante ou na nossa</b> (se cai na nossa,
+            viramos custodiante de dinheiro de terceiro, e isso muda o risco regulatório do
+            negócio inteiro) e <b>se o split é nativo</b> — que é o item que elimina a maioria
+            dos candidatos.</div>
+        </div>
+      </li>
+      <li data-id="M2">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">M2 · o portão que nunca abriu</div>
+          <div class="ttit">Três lojas piloto</div>
+          <div class="taceite"><b>Aceite:</b> três restaurantes que aceitaram testar, com nome
+            e telefone anotados. O roadmap pede isso <b>em paralelo desde a F0</b> e diz por quê:
+            <i>"sem loja real testando, o produto vira o que a gente acha que eles precisam."</i>
+            A F3 está quase fechada e <b>nenhum restaurante viu a tela até hoje</b>.</div>
+        </div>
+      </li>
+      <li data-id="M3">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">M3 · trava a retenção</div>
+          <div class="ttit">Escolher o provedor de WhatsApp</div>
+          <div class="taceite"><b>Aceite:</b> API oficial da Meta ou Z-API, com <b>preço por
+            conversa</b> e a regra da <b>janela de 24 h</b> por escrito — é ela que decide se
+            avisar "saiu para entrega" custa nada ou custa por mensagem. Sem provedor, o pedido
+            some da vida do cliente depois do checkout, e é exatamente aí que a recorrência
+            se ganha.</div>
+        </div>
+      </li>
+      <li data-id="M4">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">M4 · antes do M1 fechar</div>
+          <div class="ttit">Decidir o modelo de cobrança</div>
+          <div class="taceite"><b>Aceite:</b> escolher entre <b>mensalidade fixa</b>,
+            <b>mensalidade + % do pedido</b> ou <b>só %</b>, com a conta fechada para uma loja
+            de referência — 300 pedidos por mês, ticket médio real. Vem antes do M1 porque
+            <b>é ele que diz se precisamos de split</b>: mensalidade fixa cobra por boleto e
+            dispensa split; qualquer % do pedido exige split nativo e corta metade dos
+            provedores da lista.</div>
+        </div>
+      </li>
+      <li data-id="M5">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">M5 · código, e está destravado</div>
+          <div class="ttit">Tela do cliente no Pix — aguardando, expirado, recusado</div>
+          <div class="taceite"><b>Aceite:</b> os três estados na loja, ligados na cobrança que
+            já existe. O back do Pix está de pé e <b>é pagável hoje</b>; o que falta é o
+            cliente ver em que pé está. Briefing pronto em
+            <code>docs/prompts/trilha-front-pagamento.md</code>. <b>É o único item desta lista
+            que não depende de decisão sua</b> — dá para fazer hoje.</div>
+        </div>
+      </li>
+      <li data-id="M6">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">M6 · decide a taxa de entrega</div>
+          <div class="ttit">Geocodificação: distância real ou bairro e raio no v1</div>
+          <div class="taceite"><b>Aceite:</b> a decisão escrita, com o custo por consulta se
+            for mapa. Hoje o checkout coleta rua, número e bairro e <b>não grava coordenada</b>,
+            então a área por raio cai em <code>entrega_indeterminada</code> e a tela diz "não
+            consegui calcular". Escolher bairro é de graça e fecha o v1; escolher mapa é melhor
+            e tem fatura mensal.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="pessoa">
+    <div class="pcab">
+      <div class="av">Á</div>
+      <div>
+        <div class="pnome">Átila</div>
+        <div class="pfrente">Nome, marca e identidade visual</div>
+      </div>
+      <div class="pconta"><b data-conta="atila">0</b>/2</div>
+    </div>
+    <ul class="tarefas" data-dono="atila">
+      <li data-id="A1">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">A1 · urgente</div>
+          <div class="ttit">Nome comercial e domínio para o mise</div>
+          <div class="taceite"><b>Aceite:</b> 3 a 5 nomes candidatos, com o domínio
+            <code>.com.br</code> conferido como livre em cada um. Ver o briefing na aba
+            <a href="#nome">Nome e marca</a>. <b>"mise" é codinome</b>, declarado como tal no
+            próprio <code>CLAUDE.md</code> do projeto — não é uma opção que ficou.</div>
+        </div>
+      </li>
+      <li data-id="A2">
+        <span class="cx"><input type="checkbox"></span>
+        <div class="tcorpo">
+          <div class="tid">A2 · depois do nome</div>
+          <div class="ttit">Identidade visual do nome escolhido</div>
+          <div class="taceite"><b>Aceite:</b> logotipo em SVG com contornos, paleta e fonte
+            definidas, e a regra de uso escrita. Aqui a marca aparece <b>dentro da loja do
+            cliente</b>, que tem a marca dele — então a regra precisa dizer o que fica visível
+            e o que se cala.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="aviso vermelho">
+    <strong>A cor desta página é provisória</strong>
+    <p>Vermelho de tijolo e brasa porque o produto é comida, não porque alguém decidiu. Ela
+      troca no dia em que a A2 fechar.</p>
+  </div>
+</section>
+
+<!-- ====================== BLOQUEIOS ====================== -->
+<section id="bloqueios">
+  <h2>Bloqueios</h2>
+  <p class="lead">Quatro coisas travadas, e <b>as quatro travam em você</b>. Nenhuma é código —
+    e é por isso que o código chegou tão longe sem elas.</p>
+
+  <div class="aviso vermelho">
+    <strong>1 · Sem provedor de pagamento, alguém confere extrato à mão</strong>
+    <p>O Pix <b>já está no ar e é pagável hoje</b>, e isso não é pouco: o BR Code é padrão do
+      Banco Central, então o payload leva a chave Pix da própria loja e o dinheiro cai direto
+      na conta do restaurante, sem intermediário e <b>sem taxa</b>.</p>
+    <p>O que falta é a <b>confirmação automática</b>. Hoje o lojista olha o extrato e marca
+      "recebi o Pix" no painel. Funciona para piloto; <b>não escala para dez lojas numa sexta
+      às 20h</b> — e é exatamente na sexta às 20h que o produto precisa funcionar sozinho.</p>
+    <p>Cartão online (RF-PAG-03) depende inteiramente disso: tokenização não tem padrão aberto
+      como o Pix tem.</p>
+  </div>
+
+  <div class="aviso vermelho">
+    <strong>2 · Nenhum restaurante viu o produto</strong>
+    <p>O roadmap manda conseguir <b>3 lojas piloto em paralelo desde a F0</b>. Estamos na F3 e
+      são <b>zero</b>. Quatro fases foram construídas inteiras contra o que a gente supõe que o
+      dono de restaurante quer.</p>
+    <p>E custa pouco: não depende de contrato, de provedor nem de equipamento. É um cardápio
+      publicado e um pedido de verdade caindo no painel de alguém que não é a gente.</p>
+  </div>
+
+  <div class="aviso">
+    <strong>3 · Sem WhatsApp, o pedido some depois do checkout</strong>
+    <p>Confirmação, "saiu para entrega" e o convite para pedir de novo saem todos por WhatsApp.
+      Sem provedor, o cliente fecha o pedido e não ouve mais nada — e a recorrência, que é a
+      F4 inteira, não tem por onde acontecer.</p>
+    <p>A escolha é <b>API oficial da Meta × Z-API</b>, e o que decide não é o preço da mensagem:
+      é a <b>janela de 24 h</b> e o que ela obriga em template aprovado.</p>
+  </div>
+
+  <div class="aviso">
+    <strong>4 · O preço não está decidido, e ele desenha o sistema</strong>
+    <p>Mensalidade fixa, mensalidade + % do pedido, ou só %. Parece decisão comercial e
+      <b>é decisão de arquitetura</b>: qualquer modelo com % exige <b>split nativo</b> no
+      provedor de pagamento, e split é o requisito que elimina a maioria dos candidatos do
+      bloqueio 1.</p>
+    <p>Decidir o preço depois de contratar o provedor é a ordem errada, e ela custa a troca
+      do provedor.</p>
+  </div>
+</section>
+
+<!-- ====================== NOME ====================== -->
+<section id="nome">
+  <h2>Nome e marca — briefing para o Átila</h2>
+  <p class="lead">"mise" vem de <i>mise en place</i>, a bancada organizada antes do serviço.
+    Serve como codinome interno; não serve para vender, para pôr num domínio nem para o dono
+    do restaurante repetir.</p>
+
+  <h3>O que o produto é</h3>
+  <div class="rolar">
+    <table>
+      <tbody>
+        <tr><td><b>Para quem</b></td><td><b>Restaurante</b> que hoje vende por marketplace e paga comissão, ou que vende por WhatsApp na mão. Pequeno e médio, dono presente</td></tr>
+        <tr><td><b>Quem usa</b></td><td>Dois públicos muito diferentes: <b>o cliente com fome</b>, no celular, que nunca ouviu falar de nós — e <b>o lojista</b>, no painel, durante o serviço</td></tr>
+        <tr><td><b>O que resolve</b></td><td>Canal de pedido próprio do restaurante: cardápio, carrinho, checkout, pagamento e acompanhamento, sem comissão de marketplace</td></tr>
+        <tr><td><b>Como é vendido</b></td><td>SaaS multi-inquilino: uma assinatura por restaurante, todos no mesmo sistema. Não é instalação isolada por cliente</td></tr>
+        <tr><td><b>O que tem de diferente</b></td><td>Pizza meio a meio com regra de preço, "pedir de novo em dois toques", e Pix que cai direto na conta do restaurante</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>O que o nome precisa aguentar</h3>
+  <ol class="passos">
+    <li><b>Aparecer ao lado da marca do restaurante sem competir com ela.</b> Este é o
+      requisito mais duro, e o que torna este nome diferente de qualquer outro: a loja é do
+      cliente, e o nosso nome é rodapé. Nome que grita estraga a loja de quem paga.</li>
+    <li><b>Caber num domínio <code>.com.br</code> livre.</b> Confira antes de trazer — nome bom
+      com domínio ocupado é nome perdido.</li>
+    <li><b>Não ser só a categoria.</b> "Delivery", "Pedidos", "Food" e "App" no nome fazem o
+      produto virar commodity antes da primeira reunião.</li>
+    <li><b>Não prender a delivery para sempre.</b> A fase 2 é ERP de restaurante — PDV, KDS,
+      QR na mesa. Nome com "entrega" ou "motoboy" fecha essa porta.</li>
+    <li><b>Ser dito no telefone sem soletrar.</b> A venda para o dono do restaurante acontece
+      por telefone e WhatsApp. E cuidado com o francês: <i>mise</i> não sobrevive a isso.</li>
+  </ol>
+
+  <h3>O que trazer</h3>
+  <div class="aviso verde">
+    <p><b>3 a 5 nomes</b>, e para cada um: o domínio <code>.com.br</code> conferido, uma frase
+      dizendo por que ele cabe, e o que ele quer dizer se quiser dizer algo.</p>
+    <p><b>Não registre nada sozinho.</b> Cotar e recomendar é individual; registrar em nome
+      da empresa é decisão de todos.</p>
+  </div>
+</section>
+
+<!-- ====================== ESTADO ====================== -->
+<section id="estado">
+  <h2>Estado do projeto</h2>
+  <p class="lead">Conferido contra o <code>docs/REQUISITOS.md</code>, atualizado pela última vez
+    em 11/08/2026. As fases F0 a F2 fecharam; a F3 está com o back de pé.</p>
+
+  <h3>As fases</h3>
+  <div class="rolar">
+    <table>
+      <thead><tr><th>Fase</th><th>Entrega</th><th>Situação</th></tr></thead>
+      <tbody>
+        <tr><td><b>F0</b> Fundação</td><td>Monorepo, Docker, RLS, <code>withTenant</code>, auth, teste de tenancy</td><td><span class="selo s-ok">fechada</span></td></tr>
+        <tr><td><b>F1</b> Cardápio</td><td>Catálogo, complementos, meio a meio, loja pública SSR</td><td><span class="selo s-ok">fechada</span></td></tr>
+        <tr><td><b>F2</b> Pedido</td><td>Carrinho, checkout, painel do lojista, acompanhamento</td><td><span class="selo s-ok">fechada</span></td></tr>
+        <tr><td><b>F3</b> Pagamento</td><td>Pix, cartão, webhook, status por WhatsApp</td><td><span class="selo s-and">back pronto, falta tela e provedor</span></td></tr>
+        <tr><td><b>F4</b> Retenção</td><td>Pedir de novo, PWA, cupom, relatório</td><td><span class="selo s-esp">depende do M3</span></td></tr>
+        <tr><td><b>F5</b> Plataforma</td><td>Onboarding, planos, cobrança, whitelabel</td><td><span class="selo s-esp">depende do M4</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>O que já funciona</h3>
+  <div class="rolar">
+    <table>
+      <tbody>
+        <tr><td><b>Isolamento</b></td><td>Toda tabela com <code>tenant_id</code>, RLS forçada com <code>USING</code> e <code>WITH CHECK</code>, aplicação nunca conecta como superuser. <code>pnpm test:tenancy</code> varre o schema inteiro</td></tr>
+        <tr><td><b>Cardápio</b></td><td>Categorias, variações, grupos de complemento com mínimo e máximo, <b>pizza meio a meio com regra de preço</b>, loja pública renderizada no servidor</td></tr>
+        <tr><td><b>Pedido</b></td><td>Fecha fim a fim numa transação única: cliente, endereço, número do dia, pedido e itens. Verificado no navegador contra o banco, não só por teste</td></tr>
+        <tr><td><b>Idempotência</b></td><td>Chave no fechamento (0005): mesmo envio duas vezes devolve o mesmo pedido, inclusive com dois POSTs simultâneos. Expira em 30 min, para o carrinho novo não ser trocado pelo pedido velho</td></tr>
+        <tr><td><b>Pedir de novo</b></td><td>Dois toques (0006). Remonta pelo <b>id</b> guardado ao lado do nome congelado, nunca pelo nome — e recusa refazer a linha se faltar um sabor</td></tr>
+        <tr><td><b>Painel</b></td><td>Fila com alerta, transições dependentes de modalidade (retirada não passa por "saiu para entrega"), recusa e cancelamento pedem motivo</td></tr>
+        <tr><td><b>Pix</b></td><td>BR Code montado com CRC16 conferido contra o vetor canônico do padrão. Cobrança viva e cobrança paga garantidas por índice parcial. Webhook com HMAC-SHA256 em tempo constante, <b>falha fechada sem segredo configurado</b></td></tr>
+        <tr><td><b>Velocidade</b></td><td>RNF-02 <b>medido, não estimado</b>: 135,1 KB gzip na vitrine e 141,4 KB no checkout, contra os 150 KB do requisito</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>O que não existe</h3>
+  <div class="rolar">
+    <table>
+      <thead><tr><th>Falta</th><th>Gravidade</th></tr></thead>
+      <tbody>
+        <tr><td><b>Provedor de pagamento</b> — a confirmação do Pix é manual</td><td><span class="selo s-parado">trava o v1</span></td></tr>
+        <tr><td><b>Loja piloto</b> — nenhum restaurante testou</td><td><span class="selo s-parado">trava tudo</span></td></tr>
+        <tr><td><b>Tela do cliente no Pix</b> — aguardando, expirado, recusado</td><td><span class="selo s-risco">alta, e destravada</span></td></tr>
+        <tr><td><b>Cartão online</b> (RF-PAG-03) — depende do provedor</td><td><span class="selo s-risco">alta</span></td></tr>
+        <tr><td><b>WhatsApp</b> — nenhum aviso sai depois do checkout</td><td><span class="selo s-risco">média</span></td></tr>
+        <tr><td><b>Nome comercial e domínio</b></td><td><span class="selo s-risco">média</span></td></tr>
+        <tr><td>Cupom, PWA, relatório, onboarding, planos (F4 e F5)</td><td><span class="selo s-esp">backlog</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================== DÍVIDAS ====================== -->
+<section id="dividas">
+  <h2>Dívidas conhecidas</h2>
+  <p class="lead">Levantadas durante a construção, com o motivo de não terem sido feitas na hora.
+    Nenhuma bloqueia o marco da fase; as duas atrapalham a seguinte.</p>
+
+  <div class="aviso">
+    <strong>1 · O endereço do cliente não tem coordenada</strong>
+    <p>A loja ganhou endereço e coordenada na migration 0007, mas <code>encontrarArea</code>
+      precisa dos <b>dois lados</b>. O destino sairia de
+      <code>enderecos.latitude/longitude</code>, que existem desde a 0003 e <b>o checkout não
+      preenche</b> — ele coleta rua, número e bairro.</p>
+    <p>Resultado: área por raio continua caindo em <code>entrega_indeterminada</code>. A boa
+      notícia é que <b>deixou de ser silencioso</b>: a tela diz "não consegui calcular", e
+      nunca "não entregamos". Resolve com a decisão M6.</p>
+  </div>
+
+  <div class="aviso">
+    <strong>2 · O link de acompanhamento não tem segredo</strong>
+    <p><code>buscarPedidoPublico(tenantId, pedidoId)</code> devolve o status de qualquer pedido
+      do tenant a quem tiver o UUID. Exige o id exato, então a exposição foi avaliada como
+      <b>baixa</b> — mas um link vazado dá acesso permanente.</p>
+    <p>A saída já está combinada: <code>expira_em</code> no pedido e <b>token no link</b> em vez
+      do id cru. Fica para a F3.</p>
+  </div>
+
+  <div class="aviso azul">
+    <strong>Fechar uma dívida pode revelar outra — e revelou</strong>
+    <p>A lista de itens no pedido parecia ser tudo que faltava para o "pedir de novo". Só com
+      ela na mão ficou claro que a lista <b>serve para ler, não para remontar</b>: nome
+      congelado é resposta certa para a comanda de ontem e errada para refazer o pedido. Duas
+      perguntas diferentes que pareciam uma — e foi daí que saiu a migration 0006.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="fwrap">
+    <div>mise · quadro do time · atualizado em <b class="num">05/09/2026</b></div>
+    <div>Marcação de tarefa salva só neste aparelho</div>
+  </div>
+</footer>
+
+<script src="../quadro.js"></script>
+</body>
+</html>

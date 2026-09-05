@@ -1,8 +1,9 @@
 /* =============================================================================
    Quadro do time — folha compartilhada pelas tres paginas de projeto.
 
-   A cor vem de quatro tokens que cada pagina redefine no proprio <style>:
-   --marca, --marca-900, --acento e --acento-forte. O resto e igual em todas,
+   A cor vem de tokens que cada pagina redefine no proprio <style>: --marca,
+   --marca-900, --acento, --acento-forte e os tres --topo-* do texto sobre a
+   barra da marca. O resto e igual em todas,
    de proposito: o mesmo layout serve para projeto com marca fechada (Elak) e
    para projeto que ainda nao tem nome (Gestor de Vendas, mise).
    ============================================================================= */
@@ -10,6 +11,10 @@
 :root{
   --marca:#123F35; --marca-900:#0A231D; --marca-mid:#1A5A4A;
   --acento:#3E9C7F; --acento-forte:#2A7A61; --acento-claro:#6FD3AE; --lavado:#E2EFE9;
+  /* Texto sobre a barra da marca. Sao cor, entao cada pagina redefine junto
+     com os quatro de cima -- verde fixo aqui deixava a navegacao do mise
+     verde sobre vermelho. */
+  --topo-fraco:#9FC2B6; --topo-medio:#B8D6CA; --topo-claro:#DCEDE6;
   --ink:#0E1A16; --ink-2:#33433D; --ink-3:#5A6B64;
   --rule:#D5DEDA; --rule-2:#B9C6C1;
   --surface:#fff; --surface-2:#E9EFEC; --paper:#F3F6F4;
@@ -45,11 +50,11 @@ header{background:var(--marca);color:#fff;padding:28px 20px 0}
   color:var(--acento-claro);margin-top:10px;font-weight:600}
 h1{font-family:var(--f-display);font-weight:600;letter-spacing:-.025em;
   font-size:clamp(26px,5vw,40px);line-height:1.05;margin:8px 0 4px}
-.hsub{color:#B8D6CA;margin:0 0 20px;max-width:52ch;font-size:15px}
+.hsub{color:var(--topo-medio);margin:0 0 20px;max-width:52ch;font-size:15px}
 
 .prazo{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
 .chip{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);
-  border-radius:var(--r);padding:8px 12px;font-size:13px;color:#DCEDE6}
+  border-radius:var(--r);padding:8px 12px;font-size:13px;color:var(--topo-claro)}
 .chip strong{color:#fff;font-family:var(--f-data);font-variant-numeric:tabular-nums}
 
 nav{position:sticky;top:0;z-index:20;background:var(--marca-900);
@@ -57,7 +62,7 @@ nav{position:sticky;top:0;z-index:20;background:var(--marca-900);
 .nwrap{max-width:var(--max);margin:0 auto;display:flex;gap:2px;
   overflow-x:auto;scrollbar-width:none;padding:0 12px}
 .nwrap::-webkit-scrollbar{display:none}
-nav a{color:#9FC2B6;text-decoration:none;padding:13px 12px;font-size:13.5px;
+nav a{color:var(--topo-fraco);text-decoration:none;padding:13px 12px;font-size:13.5px;
   font-weight:600;white-space:nowrap;border-bottom:2px solid transparent}
 nav a:hover{color:#fff}
 nav a.on{color:#fff;border-bottom-color:var(--acento)}

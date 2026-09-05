@@ -17,6 +17,7 @@
   :root{
     --marca:#1F3245; --marca-900:#131F2B; --marca-mid:#2C4863;
     --acento:#5B9BD5; --acento-forte:#2E6DA4; --acento-claro:#9BC4E8; --lavado:#E7EEF5;
+    --topo-fraco:#A9C3DA; --topo-medio:#BFD4E6; --topo-claro:#DCE9F4;
   }
   @media (prefers-color-scheme:dark){
     :root:not([data-theme="light"]){
@@ -26,16 +27,12 @@
       --acento-forte:#9BC4E8;
     }
   }
-  .voltar{display:inline-flex;align-items:center;gap:6px;color:#A9C3DA;
-    text-decoration:none;font-size:13px;font-weight:600;margin-bottom:14px}
-  .voltar:hover{color:#fff}
 </style>
 </head>
 <body>
 
 <header>
   <div class="hwrap">
-    <a class="voltar" href="../">← todos os projetos</a>
     <div class="htag">Quadro do time</div>
     <h1>Gestor de Vendas</h1>
     <p class="hsub">Sistema comercial para empresas de usinagem, uma instância Docker por
@@ -219,13 +216,6 @@
     <p>O que destrava: a conta no papel, com um exemplo fechado. Matéria-prima, hora/máquina,
       acabamento, margem.</p>
   </div>
-
-  <div class="aviso azul">
-    <strong>O mesmo padrão dos outros dois projetos</strong>
-    <p>Na Elak, o fiscal trava numa decisão sua sobre o provedor. No mise, o pagamento trava numa
-      decisão sua sobre o provedor. Aqui, a nota fiscal trava numa decisão sua sobre o provedor.
-      <b>Três projetos, o mesmo tipo de bloqueio</b> — e nenhum deles anda por código.</p>
-  </div>
 </section>
 
 <!-- ====================== NOME ====================== -->
@@ -264,8 +254,8 @@
   <div class="aviso verde">
     <p><b>3 a 5 nomes</b>, e para cada um: o domínio <code>.com.br</code> conferido, uma frase
       dizendo por que ele cabe, e o que ele quer dizer se quiser dizer algo.</p>
-    <p><b>Não registre nada sozinho.</b> Igual à regra da Elak: cotar e recomendar é individual,
-      registrar em nome da empresa é decisão de todos.</p>
+    <p><b>Não registre nada sozinho.</b> Cotar e recomendar é individual; registrar em nome
+      da empresa é decisão de todos.</p>
   </div>
 </section>
 
@@ -353,7 +343,7 @@
 <footer>
   <div class="fwrap">
     <div>Gestor de Vendas · quadro do time · atualizado em <b class="num">04/09/2026</b></div>
-    <div><a href="../">todos os projetos</a></div>
+    <div>Marcação de tarefa salva só neste aparelho</div>
   </div>
 </footer>
 
